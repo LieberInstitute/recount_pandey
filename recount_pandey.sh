@@ -27,7 +27,9 @@ Rscript prep_sample.R -h
 
 ## Process all samples
 cut -f 5 /dcl01/leek/data/sunghee/all_s3.manifest | while read sample
-    do echo "Analyzing sample ${sample}"
+    do
+        currentdate=$(date)
+    echo "${currentdate}: analyzing sample ${sample}"
     ls -lh ${DATADIR}/${sample}.bw
     Rscript prep_sample.R -f ${DATADIR}/${sample}.bw -c ${COUNTS} -b ${BWTOOL} -w ${WIGGLE} -a TRUE
 done

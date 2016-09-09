@@ -2,7 +2,6 @@
 #$ -N pandey_recount
 #$ -l mem_free=250G,h_vmem=300G,h_fsize=40G
 #$ -m e
-#$ -M lcollado@jhu.edu
 #$ -cwd
 
 ## Create logs dir
