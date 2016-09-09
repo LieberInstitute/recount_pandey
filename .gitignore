@@ -1,0 +1,21 @@
+## Some temporary files
+rse_temp
+ucsc-knowngene-hg38.bed
+ucsc-knowngene-hg38-genes-bp-length.Rdata
+ucsc-knowngene-hg38-exons.Rdata
+count_groups.Rdata
+counts_exon.tsv.gz
+counts_gene.tsv.gz
+rse_exon.Rdata
+rse_gene.Rdata
+rse_jx.Rdata
+hg38.sizes
+introns_unique.Rdata
+mean.bw
+bw
+
+## Temp bash files
+.*.sh
+
+## Original scripts
+prep_*.R
