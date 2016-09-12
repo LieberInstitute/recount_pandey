@@ -9,9 +9,9 @@ module load ucsctools
 module load wiggletools/default
 
 ## Download required scripts
-wget https://raw.githubusercontent.com/leekgroup/recount-website/99d3bf76fa4b99b8103ac84d7c7da72c7f69ac2d/recount-prep/prep_merge.R .
-wget https://raw.githubusercontent.com/leekgroup/recount-website/99d3bf76fa4b99b8103ac84d7c7da72c7f69ac2d/recount-prep/prep_sample.R .
-wget https://raw.githubusercontent.com/leekgroup/recount-website/99d3bf76fa4b99b8103ac84d7c7da72c7f69ac2d/recount-prep/prep_setup.R .
+wget https://raw.githubusercontent.com/leekgroup/recount-website/20865772fc671154e57719e0c32b81c1ef3c7b82/recount-prep/prep_merge.R .
+wget https://raw.githubusercontent.com/leekgroup/recount-website/20865772fc671154e57719e0c32b81c1ef3c7b82/recount-prep/prep_sample.R .
+wget https://raw.githubusercontent.com/leekgroup/recount-website/20865772fc671154e57719e0c32b81c1ef3c7b82/recount-prep/prep_setup.R .
 
 ## Some common variables
 DATADIR="/dcl01/leek/data/sunghee_analysis/processed/coverage_bigwigs"
