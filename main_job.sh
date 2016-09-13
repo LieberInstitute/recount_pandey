@@ -1,6 +1,6 @@
 #!/bin/sh
 #$ -N pandey_recount
-#$ -l mem_free=250G,h_vmem=300G,h_fsize=40G
+#$ -l mem_free=40G,h_vmem=50G,h_fsize=40G
 #$ -m e
 #$ -cwd
 
