@@ -9,9 +9,9 @@ module load ucsctools
 module load wiggletools/default
 
 ## Download required scripts
-wget https://raw.githubusercontent.com/leekgroup/recount-website/20865772fc671154e57719e0c32b81c1ef3c7b82/recount-prep/prep_merge.R .
-wget https://raw.githubusercontent.com/leekgroup/recount-website/20865772fc671154e57719e0c32b81c1ef3c7b82/recount-prep/prep_sample.R .
-wget https://raw.githubusercontent.com/leekgroup/recount-website/20865772fc671154e57719e0c32b81c1ef3c7b82/recount-prep/prep_setup.R .
+wget https://raw.githubusercontent.com/leekgroup/recount-website/5881e1359fb470c529a011e5440323d5247f7ca6/recount-prep/prep_merge.R .
+wget https://raw.githubusercontent.com/leekgroup/recount-website/5881e1359fb470c529a011e5440323d5247f7ca6/recount-prep/prep_sample.R .
+wget https://raw.githubusercontent.com/leekgroup/recount-website/5881e1359fb470c529a011e5440323d5247f7ca6/recount-prep/prep_setup.R .
 
 ## Some common variables
 DATADIR="/dcl01/leek/data/sunghee_analysis/processed/coverage_bigwigs"
@@ -26,13 +26,7 @@ Rscript prep_setup.R
 Rscript prep_sample.R -h
 
 ## Process all samples
-cut -f 5 /dcl01/leek/data/sunghee/all_s3.manifest | while read sample
-    do
-        currentdate=$(date)
-    echo "${currentdate}: analyzing sample ${sample}"
-    ls -lh ${DATADIR}/${sample}.bw
-    Rscript prep_sample.R -f ${DATADIR}/${sample}.bw -c ${COUNTS} -b ${BWTOOL} -w ${WIGGLE} -a TRUE
-done
+cut -f 5 /dcl01/leek/data/sunghee/all_s3.manifest | parallel --jobs 10 Rscript prep_sample.R -f ${DATADIR}/{}.bw -c ${COUNTS} -b ${BWTOOL} -w ${WIGGLE} -a TRUE
 
 ## Now merge results
 paste rse_temp/counts_exon_* > counts_exon.tsv
@@ -41,7 +35,6 @@ paste rse_temp/counts_gene_* > counts_gene.tsv
 gzip counts_gene.tsv
 
 ## Display help info on how to run prep_merge.R
-module load R/3.3
 Rscript prep_merge.R -h
 
 ## Merge rse objects and create junction rse object
