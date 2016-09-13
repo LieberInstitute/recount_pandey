@@ -1,6 +1,6 @@
 #!/bin/sh
 #$ -N pandey_intropolis
-#$ -l mem_free=10G,h_vmem=11G,h_fsize=50G
+#$ -l mem_free=1G,h_vmem=2G,h_fsize=50G
 #$ -m e
 #$ -pe local 12
 #$ -cwd
@@ -17,6 +17,15 @@ Rscript query_intropolis.R
 
 ## Query intropolis
 cat <(gzip -cd /dcl01/leek/data/sra_work/v2/intropolis.v2.hg38.tsv.gz | cut -f1-4) jx.tsv | /users/lcollado/software/coreutils/bin/sort --parallel=12 -k1,1 -k2,2n -k3,3n -k4,4 | uniq -c | awk '$1 == 2' > jx_in_intropolis.tsv
+
+## Classify results
+Rscript classify_intropolis.R
+
+## Note:
+# cat <(gzip -cd /dcl01/leek/data/sra_work/v2/intropolis.v2.hg38.tsv.gz) | wc -l
+# 81066376
+## So:
+# 112332 / 81066376 * 100 = 0.138567931 percent new junctions
 
 echo "**** Job ends ****"
 date
