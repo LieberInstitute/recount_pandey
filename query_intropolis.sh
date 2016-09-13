@@ -4,6 +4,7 @@
 #$ -m e
 #$ -pe local 12
 #$ -cwd
+#$ -hold_jid pandey_recount
 
 ## Create logs dir
 mkdir -p logs
