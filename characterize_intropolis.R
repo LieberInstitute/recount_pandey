@@ -1,3 +1,10 @@
+## Usage:
+# qrsh -l mem_free=50G,h_vmem=60G
+# Rscript characterize_intropolis.R
+# mkdir -p logs
+# Rscript characterize_intropolis.R > logs/characterize_intropolis_log.txt 2>&1
+
+
 ## Load libraries
 library('SummarizedExperiment')
 library('GenomicRanges')
@@ -7,37 +14,67 @@ library('devtools')
 message(paste(Sys.time(), 'loading rse_jx_with_intropolis.Rdata'))
 system.time( load('rse_jx_with_intropolis.Rdata') )
 
-## Keep only those not in intropolis
+## Separate them by whether they are in Intropolis or not
 rse_new <- subset(rse_jx, subset = !in_intropolis)
 rse_present <- subset(rse_jx, subset = in_intropolis)
+rse_list <- list('new' = rse_new, 'present' = rse_present)
+
+## Logical matrices: jx present in sample?
+presence <- lapply(rse_list, function(x) { assays(x, 1)$counts > 0 })
+
+## Number of junctions in each case
+print('Number of jx in Intropolis')
+table(rowRanges(rse_jx)$in_intropolis)
+
+print('Percent added jx vs Intropolis')
+length(rowRanges(rse_new)) / 81066376 * 100
+
+## Number of samples
+n_samples <- lapply(presence, rowSums)
+print('Number of samples')
+lapply(n_samples, table)
+lapply(lapply(n_samples, table), function(x) { round(x / sum(x) * 100, 2) })
+lapply(n_samples, summary)
 
 
+## How many junctions per sample?
+n_jx <- lapply(presence, colSums)
+print('Number of jx per sample')
+lapply(n_jx, table)
+lapply(n_jx, summary)
 
-n_samples <- rowSums(assays(rse_new, 1)$counts > 0)
-table(n_samples)
-summary(n_samples)
+## Types per samples
+print('Types per sample')
+lapply(rse_list, function(x) { table(rowRanges(x)$class) })
+lapply(rse_list, function(x) { round(table(rowRanges(x)$class) / length(rowRanges(x)) * 100, 2) })
 
-n_samples_p <- rowSums(assays(rse_present, 1)$counts > 0)
-table(n_samples_p)
-summary(n_samples_p)
-
-## What is going on with some that have 0?
-weird <- which(n_samples == 0)
-weird_gr <- rowRanges(rse_new)[weird]
-
-opt <- list(jx_file = '/dcl01/leek/data/sunghee_analysis/processed/cross_sample_results/first_pass_junctions.tsv.gz')
-message(paste(Sys.time(), 'reading', opt$jx_file))
-jx_info <- read.table(opt$jx_file, sep = '\t', header = FALSE,
-    stringsAsFactors = FALSE, check.names = FALSE)
-colnames(jx_info) <- c('chr', 'start', 'end', 'sample_ids', 'reads')
-
-head(jx_info)
+## Maximum number of 
+max_cov <- lapply(seq_len(10), function(i) {
+    rowMax(assays(subset(rse_new, subset = n_samples[[1]] == i), 1)$counts)
+})
+names(max_cov) <- seq_len(10)
+print('Maximum jx coverage for the new jx')
+lapply(max_cov, summary)
 
 
-weird_df <- data.frame(chr = paste0(seqnames(weird_gr), strand(weird_gr)), start = start(weird_gr), end = end(weird_gr), stringsAsFactors = FALSE)
+## Exploratory plots
+my_plot <- function(info, ...) {
+    plot(x = as.integer(names(info)), y = as.integer(info), ...)
+}
 
-subset(jx_info, chr %in% weird_df$chr & start %in% weird_df$start & end %in% weird_df$end)
-sapply(jx_info, class)
+pdf('exploratory_plots.pdf')
+## Number of samples
+xx <- lapply(lapply(n_samples, table), my_plot, main = 'Number of samples (frequency)', xlab = 'Number of samples', ylab = 'Number of jx')
+xx <- lapply(lapply(lapply(n_samples, table), function(x) { round(x / sum(x) * 100, 2) }), my_plot, main = 'Number of samples (percent)', xlab = 'Number of samples', ylab = 'Percent of jx')
+## Number of jx
+xx <- lapply(lapply(n_jx, table), my_plot, main = 'Number of non-zero jx (frequency)', xlab = 'Number of non-zero jx', ylab = 'Number of samples')
+xx <- lapply(n_jx, boxplot, main = 'Number of non-zero jx by sample')
+## Types per sample
+xx <- lapply(lapply(rse_list, function(x) { table(rowRanges(x)$class) }), barplot, main = 'Jx by class (frequency)')
+xx <- lapply(lapply(rse_list, function(x) { round(table(rowRanges(x)$class) / length(rowRanges(x)) * 100, 2) }), barplot, main = 'Jx by class (percent)', ylim = c(0, 100))
+## Max coverage for new jx
+xx <- mapply(function(x, y) boxplot(x, main = paste('Maximum cov for new jx: n-samples', y)), max_cov, names(max_cov))
+dev.off()
 
 ## Reproducibility info
 proc.time()
