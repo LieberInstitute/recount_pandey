@@ -1,8 +1,8 @@
 #!/bin/sh
 #$ -N pandey_recount
-#$ -l mem_free=20G,h_vmem=21G,h_fsize=40G
+#$ -l mem_free=40G,h_vmem=50G,h_fsize=40G
 #$ -m e
-#$ -pe local 10
+#$ -pe local 5
 #$ -cwd
 
 ## Create logs dir

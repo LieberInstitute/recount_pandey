@@ -26,7 +26,7 @@ Rscript prep_setup.R
 Rscript prep_sample.R -h
 
 ## Process all samples
-cut -f 5 /dcl01/leek/data/sunghee/all_s3.manifest | parallel --jobs 10 Rscript prep_sample.R -f ${DATADIR}/{}.bw -c ${COUNTS} -b ${BWTOOL} -w ${WIGGLE} -a TRUE
+cut -f 5 /dcl01/leek/data/sunghee/all_s3.manifest | parallel --jobs 5 Rscript prep_sample.R -f ${DATADIR}/{}.bw -c ${COUNTS} -b ${BWTOOL} -w ${WIGGLE} -a TRUE
 
 ## Now merge results
 paste rse_temp/counts_exon_* > counts_exon.tsv
