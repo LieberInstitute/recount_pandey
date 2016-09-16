@@ -88,3 +88,8 @@ rse_merged/
         characterize_intropolis_merged_log.txt
 ```
 
+
+## Custom coverage matrix
+
+The function in the file `custom_cov_matrix.R` is similar to `recount::coverage_matrix()` but was changed so that it would work with data that has not been added to the `recount` resource yet. It takes two new arguments: `rse` (easiest if you load `rse_gene.Rdata`) and `bigwig_path` which in this case is `"/dcl01/leek/data/sunghee_analysis/processed/coverage_bigwigs"`. Check the examples section to see how to run this function.
+
