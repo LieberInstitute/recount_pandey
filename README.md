@@ -13,7 +13,7 @@ counts_gene.tsv.gz
 rse_exon.Rdata
 rse_gene.Rdata
 rse_jx.Rdata
-bw
+bw/
     mean.bw
     
 ## Log files
@@ -32,7 +32,8 @@ jx_in_intropolis.tsv.gz
 jx.tsv.gz
 
 ## Log files
-logs/prandey_intropolis*
+logs/
+    pandey_intropolis*
 
 ## Final output
 rse_jx_with_intropolis.Rdata
@@ -48,7 +49,8 @@ maximum_coverage_jx_Intropolis_not_annotated_UCSC.pdf
 maximum_coverage_jx_new.pdf
 
 ## Log file:
-logs/characterize_intropolis_log.txt
+logs/
+    characterize_intropolis_log.txt
 ```
 
 
@@ -59,13 +61,14 @@ The R script `merge_cells.R` uses the information from `CellMap_codes.csv` to me
 The files in `rse_merged` are:
 
 ```
-rse_merged
+rse_merged/
     rse_exon.Rdata
     rse_gene.Rdata
     rse_jx.Rdata
     
 ## Log file:
-logs/merge_cells_log.txt
+logs/
+    merge_cells_log.txt
 ```
 
 ## Exploring junction results by cells
@@ -73,12 +76,14 @@ logs/merge_cells_log.txt
 Then, the script `rse_merged/characterize_intropolis_merged.R` used the information from `rse_merged/rse_jx.Rdata` to create another set of exploratory plots (analogous to the ones created previously) to explore the exon-exon junctions found against the number of cells (instead of _samples_ or technical replicates). It creates the PDF files:
 
 ```
-rse_merge
+rse_merge/
     exploratory_plots_merged.pdf
     maximum_coverage_jx_Intropolis_not_annotated_UCSC_merged.pdf
     maximum_coverage_jx_new_merged.pdf
 
 ## Log file:
-rse_merged/logs/characterize_intropolis_merged_log.txt
+rse_merged/
+    logs/
+        characterize_intropolis_merged_log.txt
 ```
 
