@@ -1,6 +1,5 @@
 ## Usage:
 # qrsh -l mem_free=50G,h_vmem=60G
-# Rscript characterize_intropolis.R
 # mkdir -p logs
 # Rscript characterize_intropolis.R > logs/characterize_intropolis_log.txt 2>&1
 
