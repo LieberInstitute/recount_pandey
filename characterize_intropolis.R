@@ -73,29 +73,26 @@ print('Maximum jx coverage for the jx present in Intropolis and not "annotated" 
 lapply(max_cov_p, summary)
 
 ## Number of jx in UCSC knownGene hg38:
-# load('introns_unique.Rdata')
-#> length(introns_unique)
+load('/dcl01/leek/data/recount-website/rse/introns_unique_with_intropolis.Rdata')
+length(introns_unique)
 #[1] 287062
+
+## Are they in Pandey's data?
+introns_unique$in_pandey <- countOverlaps(introns_unique, rowRanges(rse_jx), type = 'equal') > 0
+
 
 venn <- vennCounts(matrix(0, ncol = 3, dimnames = list(1,
     c('Intropolis', 'knownGene', 'Pandey'))))
 
-## The following numbers are incomplete because I'm missing the comparison
-## between Intropolis v2 and UCSC knownGene hg38
-miss <- c(
-    287062 - sum(rowRanges(rse_jx)$class == 'annotated') - 0,
-    81066376 - length(rse_present) - 0,
-    0
-)
 venn[c(3, 5, 7), ]
 venn[, 4] <- c(
     0,
     length(rse_new) - sum(rowRanges(rse_new)$class == 'annotated'),
-    miss[1],
+    sum(!introns_unique$in_intropolis & !introns_unique$in_pandey),
     sum(rowRanges(rse_new)$class == 'annotated'),
-    miss[2],
+    81066376 - length(rse_present) - sum(introns_unique$in_intropolis & !introns_unique$in_pandey),
     length(rse_present) - sum(rowRanges(rse_present)$class == 'annotated'),
-    miss[3],
+    sum(introns_unique$in_intropolis & !introns_unique$in_pandey),
     sum(rowRanges(rse_present)$class == 'annotated')
 )
 
