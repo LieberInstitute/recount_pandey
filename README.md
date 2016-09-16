@@ -17,7 +17,8 @@ bw/
     mean.bw
     
 ## Log files
-logs/pandey_recount*
+logs/
+    pandey_recount*
 ```
 
 ## Which exon-exon junctions overlap Intropolis v2
