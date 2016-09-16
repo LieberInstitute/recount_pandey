@@ -22,7 +22,22 @@
 #' way.
 #' @param verboseLoad If \code{TRUE} basic status updates for loading the data
 #' will be printed.
-
+#'
+#' @return A matrix with one row per region and one column per sample. The
+#' numbers in the cells are the counts (number of reads, or fraction in some
+#' cases) overlapping the region.
+#'
+#' @details This function is similar to \link[recount]{coverage_matrix} but
+#' works with data that is not part of recount. The \code{rse} object has to
+#' contain the AUC and names of the bigwig files. That is the case
+#' if they are created with \url{https://github.com/leekgroup/recount-website/blob/master/recount-prep/prep_merge.R}.
+#'
+#' @author Leonardo Collado-Torres
+#' @export
+#'
+#' @import deffinder SummarizedExperiment BiocParallel
+#'
+#' @seealso \link[recount]{coverage_matrix}
 #'
 #' @examples
 #' ## Note that this custom function requires that derfinder 1.6.4 or newer
