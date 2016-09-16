@@ -9,6 +9,8 @@
 library('SummarizedExperiment')
 library('GenomicRanges')
 library('devtools')
+library('RColorBrewer')
+library('limma')
 
 ## Load data
 message(paste(Sys.time(), 'loading rse_jx_with_intropolis.Rdata'))
@@ -32,7 +34,8 @@ length(rowRanges(rse_new)) / 81066376 * 100
 ## Number of samples
 n_samples <- lapply(presence, rowSums)
 print('Number of samples')
-lapply(n_samples, table)
+n_samp_tab <- lapply(n_samples, table)
+n_samp_tab
 lapply(lapply(n_samples, table), function(x) { round(x / sum(x) * 100, 2) })
 lapply(n_samples, summary)
 
@@ -43,18 +46,58 @@ print('Number of jx per sample')
 lapply(n_jx, table)
 lapply(n_jx, summary)
 
-## Types per samples
-print('Types per sample')
+## Annotation class for each jx
+print('Exon-exon junctions by annotation class given by UCSC knownGene hg38')
 lapply(rse_list, function(x) { table(rowRanges(x)$class) })
-lapply(rse_list, function(x) { round(table(rowRanges(x)$class) / length(rowRanges(x)) * 100, 2) })
+lapply(rse_list, function(x) { 
+    round(table(rowRanges(x)$class) / length(rowRanges(x)) * 100, 2) })
 
-## Maximum number of 
-max_cov <- lapply(seq_len(10), function(i) {
+## Maximum number coverage for the new jx
+max_cov <- lapply(as.integer(names(n_samp_tab[[1]])), function(i) {
     rowMax(assays(subset(rse_new, subset = n_samples[[1]] == i), 1)$counts)
 })
-names(max_cov) <- seq_len(10)
+names(max_cov) <- as.integer(names(n_samp_tab[[1]]))
 print('Maximum jx coverage for the new jx')
 lapply(max_cov, summary)
+
+
+
+## Select all jx except those from the 'annotated' class
+idx <- !rowRanges(rse_present)$class %in% 'annotated'
+max_cov_p <- lapply(as.integer(names(n_samp_tab[[2]])), function(i) {
+    rowMax(assays(subset(rse_present, subset = n_samples[[2]] == i &idx ),
+        1)$counts)
+})
+names(max_cov_p) <- as.integer(names(n_samp_tab[[2]]))
+print('Maximum jx coverage for the jx present in Intropolis and not "annotated" by UCSC knownGene hg38')
+lapply(max_cov_p, summary)
+
+## Number of jx in UCSC knownGene hg38:
+# load('introns_unique.Rdata')
+#> length(introns_unique)
+#[1] 287062
+
+venn <- vennCounts(matrix(0, ncol = 3, dimnames = list(1,
+    c('Intropolis', 'knownGene', 'Pandey'))))
+
+## The following numbers are incomplete because I'm missing the comparison
+## between Intropolis v2 and UCSC knownGene hg38
+miss <- c(
+    287062 - sum(rowRanges(rse_jx)$class == 'annotated') - 0,
+    81066376 - length(rse_present) - 0,
+    0
+)
+venn[c(3, 5, 7), ]
+venn[, 4] <- c(
+    0,
+    length(rse_new) - sum(rowRanges(rse_new)$class == 'annotated'),
+    miss[1],
+    sum(rowRanges(rse_new)$class == 'annotated'),
+    miss[2],
+    length(rse_present) - sum(rowRanges(rse_present)$class == 'annotated'),
+    miss[3],
+    sum(rowRanges(rse_present)$class == 'annotated')
+)
 
 
 ## Exploratory plots
@@ -62,18 +105,68 @@ my_plot <- function(info, ...) {
     plot(x = as.integer(names(info)), y = as.integer(info), ...)
 }
 
+set.seed(20160916)
 pdf('exploratory_plots.pdf')
+## Venn diagram by Intropolis, USCS knownGene38, Pandey's data
+vennDiagram(venn,
+    main = "jx by Intropolis v2, UCSC knownGene hg38, Pandey's data",
+    counts.col = 'blue')
 ## Number of samples
-xx <- lapply(lapply(n_samples, table), my_plot, main = 'Number of samples (frequency)', xlab = 'Number of samples', ylab = 'Number of jx')
-xx <- lapply(lapply(lapply(n_samples, table), function(x) { round(x / sum(x) * 100, 2) }), my_plot, main = 'Number of samples (percent)', xlab = 'Number of samples', ylab = 'Percent of jx')
+xx <- lapply(lapply(n_samples, table), my_plot,
+    main = 'jx by presence in multiple samples', xlab = 'Number of samples',
+    ylab = 'Number of jx', type = 'o', bg = 'lightblue', pch = 21)
+xx <- lapply(lapply(lapply(n_samples, table), function(x) {
+    round(x / sum(x) * 100, 2) }), my_plot,
+    main = 'jx by presence in multiple samples', xlab = 'Number of samples',
+    ylab = 'Percent of jx', ylim = c(0, 100), bg = 'lightblue', pch = 21,
+    type = 'o')
 ## Number of jx
-xx <- lapply(lapply(n_jx, table), my_plot, main = 'Number of non-zero jx (frequency)', xlab = 'Number of non-zero jx', ylab = 'Number of samples')
-xx <- lapply(n_jx, boxplot, main = 'Number of non-zero jx by sample')
+xx <- lapply(n_jx, function(x) {
+    bar <- boxplot(x, plot = FALSE)
+    boxplot(x, main = 'Number of jx by sample', col = 'lightblue',
+        outline = FALSE, ylim = c(0.95, 1.05) * range(x))
+    points(bar$out ~ jitter(rep(1, length(bar$out)), amount = 0.1), pch = 21)
+})
 ## Types per sample
-xx <- lapply(lapply(rse_list, function(x) { table(rowRanges(x)$class) }), barplot, main = 'Jx by class (frequency)')
-xx <- lapply(lapply(rse_list, function(x) { round(table(rowRanges(x)$class) / length(rowRanges(x)) * 100, 2) }), barplot, main = 'Jx by class (percent)', ylim = c(0, 100))
+xx <- lapply(lapply(rse_list, function(x) { table(rowRanges(x)$class) }),
+    barplot, main = 'jx by class UCSC knownGene hg38',
+    col = brewer.pal(5, 'Set1'), ylab = 'Frequency')
+xx <- lapply(lapply(rse_list, function(x) { 
+    round(table(rowRanges(x)$class) / length(rowRanges(x)) * 100, 2) }),
+    barplot, main = 'Jx by class UCSC knownGene hg38', ylim = c(0, 100),
+    col = brewer.pal(5, 'Set1'), ylab = 'Percent')
+dev.off()
+
+pdf('maximum_coverage_jx_new.pdf')
 ## Max coverage for new jx
-xx <- mapply(function(x, y) boxplot(x, main = paste('Maximum cov for new jx: n-samples', y)), max_cov, names(max_cov))
+xx <- mapply(function(x, y, z) {
+    bar <- boxplot(x, plot = FALSE)
+    boxplot(x, main = paste('Max cov for new jx:', y, 'samples\nn jx:', z),
+        col = 'lightblue', outline = FALSE, ylim = c(0.95, 1.05) * range(x))
+    points(jitter(bar$out, amount = 0.2) ~ jitter(rep(1, length(bar$out)),
+        amount = 0.1), pch = 21)
+    hist(x, col = 'lightblue', main = paste('New jx:', y, 'samples\nn jx:', z),
+        xlab = 'Maximum coverage', breaks=seq(min(x)-0.5, max(x)+0.5, by=1))
+    }, max_cov, names(max_cov), n_samp_tab[[1]])
+dev.off()
+
+pdf('maximum_coverage_jx_Intropolis_not_annotated_UCSC.pdf')
+## Max coverage for jx in Intropolis but not annotated by UCSC knownGene hg38
+xx <- mapply(function(x, y, z) {
+    bar <- boxplot(x, plot = FALSE)
+    boxplot(x, main = paste(
+        'jx in Intropolis but not "annotated" by knownGene:\n',
+        y, 'samples; n jx:', z),
+        ylab = 'Maximum coverage',
+        col = 'lightblue', outline = FALSE, ylim = c(0.95, 1.05) * range(x))
+    points(jitter(bar$out, amount = 0.2) ~ jitter(rep(1, length(bar$out)),
+        amount = 0.1), pch = 21)
+    hist(x, col = 'lightblue', main = paste(
+        'jx in Intropolis but not "annotated" by knownGene:\n',
+        y, 'samples; n jx:', z),
+        xlab = 'Maximum coverage', breaks=seq(min(x)-0.5, max(x)+0.5, by=1))
+    }, max_cov_p, names(max_cov_p), sapply(as.integer(names(n_samp_tab[[2]])),
+        function(i) sum(n_samples[[2]] == i &idx) ))
 dev.off()
 
 ## Reproducibility info
