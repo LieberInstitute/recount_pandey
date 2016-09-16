@@ -43,9 +43,16 @@ Welcome to Bioconductor
     'browseVignettes()'. To cite Bioconductor, see
     'citation("Biobase")', and for packages 'citation("pkgname")'.
 
-2016-09-14 17:35:35 loading rse_jx_with_intropolis.Rdata
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+2016-09-16 13:21:17 loading rse_jx_with_intropolis.Rdata
    user  system elapsed 
- 26.764   0.856  27.628 
+ 29.184   1.377  30.568 
 [1] "Number of jx in Intropolis"
 
   FALSE    TRUE 
@@ -252,7 +259,7 @@ $present
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  135500  157200  162900  167600  171400  368800 
 
-[1] "Types per sample"
+[1] "Exon-exon junctions by annotation class given by UCSC knownGene hg38"
 $new
 
 alternative_end       annotated       exon_skip          fusion           novel 
@@ -314,10 +321,1052 @@ $`10`
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     224     224     224     224     224     224 
 
+[1] "Maximum jx coverage for the jx present in Intropolis and not \"annotated\" by UCSC knownGene hg38"
+$`1`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.00    1.00    1.00    1.16    1.00   25.00 
+
+$`2`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   1.000   1.000   1.331   2.000  25.000 
+
+$`3`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   1.000   1.000   1.514   2.000  39.000 
+
+$`4`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   1.000   2.000   1.682   2.000  64.000 
+
+$`5`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   1.000   2.000   1.838   2.000  46.000 
+
+$`6`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   1.000   2.000   1.996   2.000  57.000 
+
+$`7`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   2.000   2.154   2.000  47.000 
+
+$`8`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   2.000   2.408   2.000 103.000 
+
+$`9`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   2.000   2.494   3.000  79.000 
+
+$`10`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   2.000   2.651   3.000  62.000 
+
+$`11`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   2.000   2.753   3.000 121.000 
+
+$`12`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   2.000   2.929   3.000  96.000 
+
+$`13`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   2.000   2.982   3.000 228.000 
+
+$`14`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.00    2.00    2.00    3.12    3.00  195.00 
+
+$`15`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   2.000   3.355   4.000 166.000 
+
+$`16`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   3.766   4.000 432.000 
+
+$`17`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   3.677   4.000 117.000 
+
+$`18`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   4.212   4.000 672.000 
+
+$`19`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   3.808   4.000  88.000 
+
+$`20`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   4.351   4.000 351.000 
+
+$`21`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   4.245   4.000 142.000 
+
+$`22`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   4.215   4.000 293.000 
+
+$`23`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.00    2.00    3.00    4.42    4.00   98.00 
+
+$`24`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   4.594   5.000 181.000 
+
+$`25`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   3.000   5.059   5.000 750.000 
+
+$`26`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   4.000   5.034   5.000 241.000 
+
+$`27`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   4.000   5.245   5.000 832.000 
+
+$`28`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   4.000   5.243   5.000 261.000 
+
+$`29`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   4.000   5.626   5.000 788.000 
+
+$`30`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   4.000   6.181   5.000 655.000 
+
+$`31`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   4.000   5.412   5.000 173.000 
+
+$`32`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   4.000   5.589   6.000 240.000 
+
+$`33`
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+   1.000    3.000    4.000    8.145    6.000 3304.000 
+
+$`34`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   3.000   4.000   7.018   6.000 760.000 
+
+$`35`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   3.000   4.000   6.349   6.000 320.000 
+
+$`36`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   4.000   6.406   6.000 406.000 
+
+$`37`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   3.000   4.000   6.232   6.000 154.000 
+
+$`38`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   3.000   4.000   5.967   6.000 216.000 
+
+$`39`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   3.000   4.000   6.828   6.000 326.000 
+
+$`40`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   3.000   4.000   7.934   7.000 496.000 
+
+$`41`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   5.000   6.778   7.000 330.000 
+
+$`42`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    3.00    5.00    7.25    7.00  404.00 
+
+$`43`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   5.000   8.105   7.000 926.000 
+
+$`44`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   5.000   7.574   7.000 190.000 
+
+$`45`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   5.000   7.261   7.000 162.000 
+
+$`46`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   5.000   7.112   7.000 217.000 
+
+$`47`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   5.000   7.524   8.000 273.000 
+
+$`48`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    4.00    5.00    7.76    8.00  415.00 
+
+$`49`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   5.000   7.032   7.000 168.000 
+
+$`50`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   5.000   9.142   8.000 476.000 
+
+$`51`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   5.000   8.032   8.000 555.000 
+
+$`52`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   5.000   8.396   8.000 557.000 
+
+$`53`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   6.000   7.779   8.000 165.000 
+
+$`54`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   6.000   8.559   8.000 379.000 
+
+$`55`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   6.000   8.486   9.000 165.000 
+
+$`56`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   6.000   8.705   9.000 184.000 
+
+$`57`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   6.000   9.348   9.000 159.000 
+
+$`58`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    4.00    6.00   10.54    9.00  377.00 
+
+$`59`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    4.00    6.00   10.13    9.00  992.00 
+
+$`60`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   4.000   6.000   8.024   9.000  57.000 
+
+$`61`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    5.00    6.00   14.37    9.00 2390.00 
+
+$`62`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    4.00    6.00    9.05    9.00  146.00 
+
+$`63`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    5.00    6.00   10.19   10.00  942.00 
+
+$`64`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    5.00    7.00   12.65   10.00  994.00 
+
+$`65`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   5.000   7.000   8.752  10.000 167.000 
+
+$`66`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  3.000   5.000   7.000   9.547  11.000  85.000 
+
+$`67`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    5.00    7.00   10.34   10.00  393.00 
+
+$`68`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    5.00    7.00   10.18   10.00  236.00 
+
+$`69`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   5.000   7.000   9.944  11.000 141.000 
+
+$`70`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    5.00    7.00   10.11   11.00  202.00 
+
+$`71`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    5.00    7.00   10.26   11.00  155.00 
+
+$`72`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    5.00    7.00   11.17   11.00  364.00 
+
+$`73`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    5.00    7.00   10.03   11.00  133.00 
+
+$`74`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    5.00    7.00   12.53   11.00  353.00 
+
+$`75`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    5.00    7.00   11.53   11.00  303.00 
+
+$`76`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    5.00    8.00   11.63   12.00  362.00 
+
+$`77`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    5.00    8.00   10.65   12.00  179.00 
+
+$`78`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    5.00    8.00   10.78   12.00  132.00 
+
+$`79`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    6.00    8.00   11.12   12.00  167.00 
+
+$`80`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    6.00    7.50   10.83   11.00  256.00 
+
+$`81`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    6.00    8.00   16.47   13.00  626.00 
+
+$`82`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    6.00    8.00   12.33   13.00  227.00 
+
+$`83`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    6.00    8.00   15.11   12.00 1170.00 
+
+$`84`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    6.00    9.00   12.02   13.00  237.00 
+
+$`85`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    3.0     6.0     9.0    13.4    14.0   219.0 
+
+$`86`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    3.0     6.0     8.0    12.2    14.0   144.0 
+
+$`87`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    6.00    9.00   12.09   14.00  180.00 
+
+$`88`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    6.00    9.00   13.45   14.00  156.00 
+
+$`89`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    6.00    9.00   13.99   15.00  359.00 
+
+$`90`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    6.00    9.00   14.46   14.00  461.00 
+
+$`91`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    3.0     7.0     9.0    18.6    14.0  1484.0 
+
+$`92`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    7.00    9.00   13.81   14.00  200.00 
+
+$`93`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    7.00   10.00   15.49   16.00  562.00 
+
+$`94`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00    9.00   12.54   15.00   98.00 
+
+$`95`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    7.00   10.00   21.52   16.00 1107.00 
+
+$`96`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    7.00   10.00   16.88   16.00  441.00 
+
+$`97`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00   10.00   13.15   15.00  131.00 
+
+$`98`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00   11.00   28.08   16.00 3480.00 
+
+$`99`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    7.00   11.00   15.62   17.00  239.00 
+
+$`100`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00    9.00   14.35   16.00  173.00 
+
+$`101`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    8.00   12.00   16.44   17.25  145.00 
+
+$`102`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00   10.00   14.82   17.00  207.00 
+
+$`103`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00   10.00   17.48   18.50  225.00 
+
+$`104`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00   11.00   14.69   16.00   97.00 
+
+$`105`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00   11.00   15.34   17.00  193.00 
+
+$`106`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00   11.00   16.45   20.00  206.00 
+
+$`107`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    4.0     7.0    10.0    15.7    18.0    99.0 
+
+$`108`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    8.00   12.50   16.87   18.00  114.00 
+
+$`109`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00   10.00   15.94   17.00  264.00 
+
+$`110`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    8.00   11.00   18.25   17.00  249.00 
+
+$`111`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    7.00   11.00   16.16   17.00  172.00 
+
+$`112`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    8.00   11.00   16.25   18.00  145.00 
+
+$`113`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00    8.00   11.00   15.95   16.00  260.00 
+
+$`114`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00    8.00   12.00   18.13   18.00  443.00 
+
+$`115`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    4.0     8.0    13.0    19.7    19.0   225.0 
+
+$`116`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    8.00   11.50   16.39   17.00  103.00 
+
+$`117`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    9.00   13.00   18.99   23.00  107.00 
+
+$`118`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00    9.00   12.00   16.09   19.00  118.00 
+
+$`119`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    8.00   12.00   16.76   20.00  105.00 
+
+$`120`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    9.00   13.00   18.14   19.25  130.00 
+
+$`121`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    9.00   13.50   17.53   22.00   93.00 
+
+$`122`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00    9.75   14.00   17.26   21.00  135.00 
+
+$`123`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00    9.75   13.00   18.03   20.25  145.00 
+
+$`124`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    9.00   14.00   18.99   21.00  169.00 
+
+$`125`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00    9.00   14.00   18.47   20.50  183.00 
+
+$`126`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00    9.00   14.00   21.29   23.00  480.00 
+
+$`127`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00   10.75   15.00   19.66   19.25  212.00 
+
+$`128`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00   10.00   15.00   20.62   23.00  113.00 
+
+$`129`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   11.00   15.00   19.68   22.00  122.00 
+
+$`130`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00    9.25   14.00   18.63   21.75  136.00 
+
+$`131`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    5.0    10.0    16.0    20.5    23.5   164.0 
+
+$`132`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   12.00   16.00   24.96   24.00  411.00 
+
+$`133`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00    9.00   14.00   18.28   22.75   95.00 
+
+$`134`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00   11.00   17.00   39.43   24.00  651.00 
+
+$`135`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00   11.00   16.00   23.43   27.25  133.00 
+
+$`136`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00   11.00   16.00   30.01   24.00 1309.00 
+
+$`137`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   12.50   16.00   26.66   29.00  372.00 
+
+$`138`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00   10.00   16.00   22.05   23.75  138.00 
+
+$`139`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   11.00   16.00   23.03   26.00  131.00 
+
+$`140`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    5.0    12.0    18.0    25.6    26.0   319.0 
+
+$`141`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   11.00   16.00   25.22   23.00  611.00 
+
+$`142`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   12.00   17.00   27.43   26.50  268.00 
+
+$`143`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   12.00   17.00   27.93   27.50  588.00 
+
+$`144`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    5.0    12.0    17.0    23.8    26.0   280.0 
+
+$`145`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    5.0    13.0    18.0    37.8    25.0   737.0 
+
+$`146`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   12.00   17.50   25.07   27.00  108.00 
+
+$`147`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   12.00   16.00   21.46   27.00  107.00 
+
+$`148`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   12.00   20.00   31.36   31.25  251.00 
+
+$`149`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   13.00   20.00   27.02   29.00  252.00 
+
+$`150`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   12.00   21.00   30.69   30.00  386.00 
+
+$`151`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   13.00   16.00   26.59   23.00  442.00 
+
+$`152`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   14.00   18.00   28.04   27.00  266.00 
+
+$`153`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   12.50   20.00   55.16   32.50 1006.00 
+
+$`154`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   12.00   19.00   23.66   27.00  158.00 
+
+$`155`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   13.00   20.00   26.05   30.75  145.00 
+
+$`156`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00   12.00   21.00   26.57   30.00  264.00 
+
+$`157`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   12.00   20.00   53.48   30.25 2553.00 
+
+$`158`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   13.00   18.00   26.28   27.75  177.00 
+
+$`159`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    6.0    17.0    22.0    35.6    32.0   615.0 
+
+$`160`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   15.00   21.00   36.13   33.00  577.00 
+
+$`161`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   16.00   20.00   28.62   31.50  205.00 
+
+$`162`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00   14.00   20.00   24.44   31.00  118.00 
+
+$`163`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   16.00   20.50   28.99   33.25  187.00 
+
+$`164`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   15.00   21.00   29.44   31.75  270.00 
+
+$`165`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   15.00   25.00   37.42   40.00  449.00 
+
+$`166`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   14.50   23.00   31.46   33.00  281.00 
+
+$`167`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00   15.00   21.00   34.52   30.00  475.00 
+
+$`168`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   8.00   14.00   21.00   26.69   34.00   99.00 
+
+$`169`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   17.00   23.00   28.74   35.00  225.00 
+
+$`170`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   13.00   22.00   45.07   36.25  616.00 
+
+$`171`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   16.00   21.50   35.58   34.50  277.00 
+
+$`172`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      7      17      23      38      38     542 
+
+$`173`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   17.25   26.00   34.51   39.50  190.00 
+
+$`174`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   15.25   21.50   33.47   36.00  247.00 
+
+$`175`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   8.00   18.00   23.00   31.62   37.00  167.00 
+
+$`176`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   8.00   16.50   25.00   33.87   39.00  204.00 
+
+$`177`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   8.00   17.00   25.50   35.98   43.00  270.00 
+
+$`178`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   17.00   24.00   30.74   32.00   96.00 
+
+$`179`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7.00   17.00   28.50   34.31   41.50  121.00 
+
+$`180`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  10.00   15.00   25.00   38.45   41.00  248.00 
+
+$`181`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  11.00   16.75   25.00   31.76   38.25  119.00 
+
+$`182`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   15.25   29.50   42.41   54.50  284.00 
+
+$`183`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   16.00   24.00   30.33   34.00  141.00 
+
+$`184`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    7.0    19.0    25.5    31.8    34.0   240.0 
+
+$`185`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   6.00   16.00   27.00   35.28   36.00  343.00 
+
+$`186`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  11.00   19.00   31.00   43.79   50.00  262.00 
+
+$`187`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   8.00   19.00   29.00   45.71   46.00  512.00 
+
+$`188`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   16.00   27.00   58.98   49.00 1279.00 
+
+$`189`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    9.0    17.5    28.0    31.6    39.5   129.0 
+
+$`190`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  10.00   21.00   31.00   36.73   49.00  207.00 
+
+$`191`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   8.00   19.75   30.00   67.28   48.75  953.00 
+
+$`192`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   21.00   33.00   66.33   54.00 1364.00 
+
+$`193`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   8.00   19.00   26.00   41.11   48.00  494.00 
+
+$`194`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  13.00   20.75   30.00   35.12   41.50  145.00 
+
+$`195`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  10.00   23.00   31.00   36.22   45.00  114.00 
+
+$`196`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  14.00   18.75   25.00   57.52   47.75  700.00 
+
+$`197`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   22.00   36.00   41.41   53.00   94.00 
+
+$`198`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   19.00   32.50   50.37   51.50  285.00 
+
+$`199`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   13.0    24.5    34.0    38.0    45.0    96.0 
+
+$`200`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   8.00   24.50   32.00   46.81   50.50  318.00 
+
+$`201`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  14.00   26.75   35.00   43.36   51.25  188.00 
+
+$`202`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  13.00   23.00   29.00   44.23   43.50  412.00 
+
+$`203`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  11.00   26.00   36.00   48.23   58.00  315.00 
+
+$`204`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  10.00   22.00   34.50   51.04   63.25  282.00 
+
+$`205`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   22.00   34.00   44.06   46.00  311.00 
+
+$`206`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+     15      29      38      52      59     239 
+
+$`207`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  14.00   25.25   42.00   55.72   69.00  180.00 
+
+$`208`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  12.00   23.75   32.50   50.59   45.75  291.00 
+
+$`209`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  14.00   28.00   41.00  103.70   79.75 2289.00 
+
+$`210`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  12.00   25.25   36.00   46.67   49.50  292.00 
+
+$`211`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  13.00   28.50   45.00   55.59   63.50  294.00 
+
+$`212`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  12.00   25.50   39.00   53.71   59.50  353.00 
+
+$`213`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  13.00   23.00   35.00   50.13   42.75  527.00 
+
+$`214`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  12.00   26.00   34.00   52.75   56.00  342.00 
+
+$`215`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  14.00   26.50   35.50   47.87   47.00  176.00 
+
+$`216`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  14.00   23.50   37.00   45.67   52.50  201.00 
+
+$`217`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  12.00   28.25   43.00   65.87   69.50  413.00 
+
+$`218`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  13.00   29.00   41.00   51.14   61.00  160.00 
+
+$`219`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  18.00   26.25   40.00   44.60   54.75  130.00 
+
+$`220`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  10.00   29.50   45.50   63.45   73.25  387.00 
+
+$`221`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   31.00   37.50   45.98   53.75  130.00 
+
+$`222`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  15.00   33.00   48.00   78.92   87.00  547.00 
+
+$`223`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  17.00   32.00   42.00   62.24   76.50  200.00 
+
+$`224`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  12.00   28.50   42.00   64.88   73.25  490.00 
+
+$`225`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   19.0    29.5    49.0   109.9    94.5  1765.0 
+
+$`226`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  18.00   30.00   46.50   64.10   73.25  280.00 
+
+$`227`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  17.00   25.00   48.00   84.36  106.00  526.00 
+
+$`228`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  10.00   33.00   52.00   71.43   77.00  560.00 
+
+$`229`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  18.00   42.25   61.50   93.17  115.50  382.00 
+
+$`230`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   22.0    40.5    57.0   122.7    81.5  1036.0 
+
+$`231`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  16.00   33.50   54.00   63.37   77.00  194.00 
+
+$`232`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  14.00   37.00   58.00   71.44   87.00  512.00 
+
+$`233`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+     15      40      66     114      94     817 
+
+$`234`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+     17      33      51      95      77     863 
+
+$`235`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  27.00   36.75   47.00   62.56   70.50  326.00 
+
+$`236`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   23.0    46.5    67.0    84.1    93.0   402.0 
+
+$`237`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  22.00   34.25   64.50   77.24  107.00  238.00 
+
+$`238`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  22.00   39.00   60.50   69.16   89.00  202.00 
+
+$`239`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  20.00   39.00   55.00   76.78   82.00  382.00 
+
+$`240`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   30.0    54.5    80.5   159.2   102.0  2790.0 
+
+$`241`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  17.00   42.00   67.00   95.14  104.00  485.00 
+
+$`242`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  35.00   47.50   67.00   90.37  106.00  353.00 
+
+$`243`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  19.00   43.00   60.00   73.17   88.50  182.00 
+
+$`244`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  24.00   50.25   66.50   90.60  101.50  299.00 
+
+$`245`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  25.00   50.25   80.00  112.90  123.00  763.00 
+
+$`246`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  31.00   48.50   82.00   93.93  121.20  279.00 
+
+$`247`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  34.00   47.50   74.50   95.82  108.80  549.00 
+
+$`248`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  21.00   46.25   74.00  165.50  124.80 1462.00 
+
+$`249`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  20.00   47.75   68.00  109.70  102.50 1036.00 
+
+$`250`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  29.00   60.50   80.50   95.32  106.50  231.00 
+
+$`251`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   28.0    69.0    98.0   190.6   163.0  2157.0 
+
+$`252`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   43.0    78.5   112.0   129.7   153.5   438.0 
+
+$`253`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  26.00   63.25   85.50  139.40  154.80 1501.00 
+
+$`254`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   42.0    85.5   134.0   138.3   165.5   356.0 
+
+$`255`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   44.0    98.0   125.5   207.5   192.5  1778.0 
+
+$`256`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   38.0   106.5   164.5   230.0   308.0  1248.0 
+
+$`257`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   50.0   121.5   181.0   260.5   331.5  1727.0 
+
+$`258`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   52.0   174.0   288.0   758.2   544.0 24430.0 
+
+[1] 287062
+  Intropolis knownGene Pandey Counts
+3          0         1      0      0
+5          1         0      0      0
+7          1         1      0      0
+null device 
+          1 
+null device 
+          1 
 null device 
           1 
    user  system elapsed 
- 76.566   3.710  80.433 
+177.551   7.856 185.628 
 Session info -----------------------------------------------------------------------------------------------------------
  setting  value                                      
  version  R version 3.3.0 Patched (2016-05-20 r70657)
@@ -326,7 +1375,7 @@ Session info -------------------------------------------------------------------
  language (EN)                                       
  collate  en_US.UTF-8                                
  tz       <NA>                                       
- date     2016-09-14                                 
+ date     2016-09-16                                 
 
 Packages ---------------------------------------------------------------------------------------------------------------
  package              * version date       source                            
@@ -338,7 +1387,9 @@ Packages -----------------------------------------------------------------------
  GenomeInfoDb         * 1.8.7   2016-09-12 Bioconductor                      
  GenomicRanges        * 1.24.3  2016-09-12 Bioconductor                      
  IRanges              * 2.6.1   2016-07-22 Bioconductor                      
+ limma                * 3.28.21 2016-09-12 Bioconductor                      
  memoise                1.0.0   2016-01-29 CRAN (R 3.3.0)                    
+ RColorBrewer         * 1.1-2   2014-12-07 CRAN (R 3.3.0)                    
  S4Vectors            * 0.10.3  2016-09-12 Bioconductor                      
  SummarizedExperiment * 1.2.3   2016-07-22 Bioconductor                      
  withr                  1.0.2   2016-06-20 CRAN (R 3.3.0)                    
